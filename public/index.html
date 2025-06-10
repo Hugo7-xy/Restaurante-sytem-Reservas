@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reserva de Mesa – Sistema Completo</title>
+
+  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-pI2rVxjyD9s3p1V5MyM1R4rkqr7hKnXLQSi29SyycZcGHJGHKx9JmOxkxfsXrI6rIXNpALjzS6p9cG2t9nYdVA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- Link para o CSS separado -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Navegação Superior -->
+  <nav class="nav-top">
+    <div class="menu-title">Sistema de Reserva – Restaurante</div>
+    <div class="nav-buttons">
+      <button class="nav-btn" id="btn-atendente">Atendente</button>
+      <button class="nav-btn" id="btn-garcom">Garçom</button>
+      <button class="nav-btn" id="btn-gerente">Gerente</button>
+    </div>
+  </nav>
+
+  <!-- Conteúdo principal: Atendente, Garçom e Gerente -->
+  <main class="content-container">
+    <!-- Atendente -->
+    <section id="atendente-view">
+      <form id="reserva-form" class="form-card">
+        <h2 class="form-title">Atendente – Reserva de Mesa</h2>
+
+        <!-- Campo: Nome do Cliente -->
+        <label for="nome" class="label-field">Nome do Responsável:</label>
+        <input
+          type="text"
+          id="nome"
+          name="nome"
+          placeholder="Nome"
+          class="input-field"
+          required
+        />
+
+        <!-- Campo: Data -->
+        <label for="data" class="label-field">Data:</label>
+        <div class="input-icon-wrapper">
+          <i class="fa-regular fa-calendar-days icon-calendar"></i>
+          <input
+            type="date"
+            id="data"
+            name="data"
+            class="input-field"
+            required
+          />
+        </div>
+
+        <!-- Campo: Hora -->
+        <label for="hora" class="label-field">Hora:</label>
+        <div class="input-icon-wrapper">
+          <i class="fa-regular fa-clock icon-calendar"></i>
+          <input
+            type="time"
+            id="hora"
+            name="hora"
+            class="input-field"
+            required
+          />
+        </div>
+
+        <!-- Seleção de Local -->
+        <div class="location-container">
+          <button type="button" id="location-btn" class="location-btn">
+            Selecionar Localização
+          </button>
+          <input
+            type="hidden"
+            id="restaurant-location"
+            name="LOCALIZAÇÃO"
+            value=""
+          />
+          <span class="location-help-text">
+            Clique para alternar entre “Barra” e “Rio Vermelho”
+          </span>
+        </div>
+
+        <!-- Seletor de Mesa -->
+        <label for="mesa" class="label-field">Selecione a Mesa</label>
+        <select id="mesa" name="mesa" class="select-field" required>
+          <option value="">Escolha uma mesa</option>
+          <!-- Opções preenchidas via JavaScript -->
+        </select>
+
+        <!-- Seletor de Quantidade de Pessoas -->
+        <label for="quantidade" class="label-field">Quantidade de Pessoas:</label>
+        <select id="quantidade" name="quantidade" class="select-field" required>
+          <option value="">Escolha o número de pessoas</option>
+          <option value="1">1 pessoa</option>
+          <option value="2">2 pessoas</option>
+          <option value="3">3 pessoas</option>
+          <option value="4">4 pessoas</option>
+          <option value="5">5 pessoas</option>
+          <option value="6">6 pessoas</option>
+          <option value="7">7 pessoas</option>
+          <option value="8">8 pessoas</option>
+          <option value="9">9 pessoas</option>
+          <option value="10">10 pessoas</option>
+        </select>
+
+        <!--  Cardápio -->
+        <fieldset class="cardapio-section">
+          <legend class="cardapio-title">Cardápio</legend>
+
+          <div class="cardapio-item">
+            <input
+              type="checkbox"
+              id="item-coxinha"
+              name="pedido"
+              value="Coxinha"
+              data-preco="5"
+              class="checkbox-field"
+            />
+            <label for="item-coxinha" class="label-item">Coxinha – R$ 5</label>
+          </div>
+          <div class="cardapio-item">
+            <input
+              type="checkbox"
+              id="item-pastel"
+              name="pedido"
+              value="Pastel"
+              data-preco="7"
+              class="checkbox-field"
+            />
+            <label for="item-pastel" class="label-item">Pastel – R$ 7</label>
+          </div>
+          <div class="cardapio-item">
+            <input
+              type="checkbox"
+              id="item-esfirra"
+              name="pedido"
+              value="Esfirra"
+              data-preco="6"
+              class="checkbox-field"
+            />
+            <label for="item-esfirra" class="label-item">Esfirra – R$ 6</label>
+          </div>
+          <div class="cardapio-item">
+            <input
+              type="checkbox"
+              id="item-pao-queijo"
+              name="pedido"
+              value="Pão de Queijo"
+              data-preco="4"
+              class="checkbox-field"
+            />
+            <label for="item-pao-queijo" class="label-item">Pão de Queijo – R$ 4</label>
+          </div>
+          <div class="cardapio-item">
+            <input
+              type="checkbox"
+              id="item-risoles"
+              name="pedido"
+              value="Risoles"
+              data-preco="6"
+              class="checkbox-field"
+            />
+            <label for="item-risoles" class="label-item">Risoles – R$ 6</label>
+          </div>
+          <div class="cardapio-item">
+            <input
+              type="checkbox"
+              id="item-bolinho-bacalhau"
+              name="pedido"
+              value="Bolinho de Bacalhau"
+              data-preco="10"
+              class="checkbox-field"
+            />
+            <label for="item-bolinho-bacalhau" class="label-item">Bolinho de Bacalhau – R$ 10</label>
+          </div>
+          <div class="cardapio-item">
+            <input
+              type="checkbox"
+              id="item-espetinho"
+              name="pedido"
+              value="Espetinho de Carne"
+              data-preco="12"
+              class="checkbox-field"
+            />
+            <label for="item-espetinho" class="label-item">Espetinho de Carne – R$ 12</label>
+          </div>
+          <div class="cardapio-item">
+            <input
+              type="checkbox"
+              id="item-pastelzinho-carne"
+              name="pedido"
+              value="Pastelzinho de Carne"
+              data-preco="4"
+              class="checkbox-field"
+            />
+            <label for="item-pastelzinho-carne" class="label-item">Pastelzinho de Carne – R$ 4</label>
+          </div>
+          <!-- Bebidas -->
+          <div class="cardapio-item">
+            <input
+              type="checkbox"
+              id="item-agua"
+              name="pedido"
+              value="Água"
+              data-preco="3"
+              class="checkbox-field"
+            />
+            <label for="item-agua" class="label-item">Água – R$ 3</label>
+          </div>
+          <div class="cardapio-item">
+            <input
+              type="checkbox"
+              id="item-refrigerante"
+              name="pedido"
+              value="Refrigerante (lata)"
+              data-preco="5"
+              class="checkbox-field"
+            />
+            <label for="item-refrigerante" class="label-item">Refrigerante (lata) – R$ 5</label>
+          </div>
+          <div class="cardapio-item">
+            <input
+              type="checkbox"
+              id="item-suco"
+              name="pedido"
+              value="Suco Natural"
+              data-preco="6"
+              class="checkbox-field"
+            />
+            <label for="item-suco" class="label-item">Suco Natural – R$ 6</label>
+          </div>
+          <div class="cardapio-item">
+            <input
+              type="checkbox"
+              id="item-cerveja"
+              name="pedido"
+              value="Cerveja (long neck)"
+              data-preco="8"
+              class="checkbox-field"
+            />
+            <label for="item-cerveja" class="label-item">Cerveja (long neck) – R$ 8</label>
+          </div>
+        </fieldset>
+
+        <!-- Botões de Salvar Reserva e Cancelar Reserva -->
+        <div class="action-buttons">
+          <button type="button" id="btn-salvar-reserva" class="btn-salvar-reserva">
+            Salvar Reserva
+          </button>
+          <button type="button" id="btn-cancelar" class="btn-cancelar">
+            Cancelar Reserva
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- GARÇOM – reservas/pedidos em andamento === -->
+    <section id="garcom-view" class="hidden">
+      <h2>Pedidos em Andamento</h2>
+
+      <!-- Login do Garçom -->
+      <div class="garcom-login">
+        <button type="button" id="btn-identificar-garcom" class="btn-identificar">
+          Identificar Garçom
+        </button>
+        <span id="garcom-nome-display" class="garcom-nome-display"></span>
+      </div>
+      <div id="avisos-garcom" class="avisos-garcom">
+        Por favor, identifique-se para atender os pedidos em andamento.
+      </div>
+
+      
+      <div id="lista-pedidos">
+        <!-- As reservas serão inseridas aqui via JavaScript -->
+      </div>
+    </section>
+
+    <!-- GERENTE – relatórios -->
+    <section id="gerente-view" class="hidden">
+      <h2>Gerente – Relatórios de Reservas</h2>
+
+      <!-- Relatório de reservas atendidas ou não em certo período -->
+      <div class="relatorio-section">
+        <h3>1. Reservas Atendidas ou Não em Período</h3>
+        <label for="periodo-inicio">Início:</label>
+        <input type="date" id="periodo-inicio" />
+        <label for="periodo-fim">Fim:</label>
+        <input type="date" id="periodo-fim" />
+        <button type="button" id="btn-relatorio-periodo" class="btn-gerar-relatorio">
+          Gerar Relatório
+        </button>
+      </div>
+
+      <!-- Relatório de reservas feitas para determinada mesa -->
+      <div class="relatorio-section">
+        <h3>2. Reservas para Mesa Específica</h3>
+        <label for="relatorio-mesa">Mesa (ex: mesa-3):</label>
+        <input type="text" id="relatorio-mesa" placeholder="mesa-1" />
+        <button type="button" id="btn-relatorio-mesa" class="btn-gerar-relatorio">
+          Gerar Relatório
+        </button>
+      </div>
+
+      <!-- Relatório de mesas confirmadas por Garçom -->
+      <div class="relatorio-section">
+        <h3>3. Mesas Confirmadas por Garçom</h3>
+        <label for="relatorio-garcom">Garçom (nome):</label>
+        <input type="text" id="relatorio-garcom" placeholder="Carlos" />
+        <button type="button" id="btn-relatorio-garcom" class="btn-gerar-relatorio">
+          Gerar Relatório
+        </button>
+      </div>
+
+    
+      <h3>Resultado do Relatório:</h3>
+      <textarea id="report-output" readonly></textarea>
+    </section>
+  </main>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,549 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #FFDEE9 0%, #B5FFFC 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* NAVEGAÇÃO SUPERIOR*/
+.nav-top {
+  width: 100%;
+  background-color: rgba(30, 30, 60, 0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.menu-title {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-btn {
+  background: linear-gradient(45deg, #1E90FF, #00BFFF);
+  color: #fff;
+  border: none;
+  padding: 0.65rem 1.8rem;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1.05rem;
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nav-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.nav-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* CONTÊINER GERAL (FORMULÁRIO)*/
+.content-container {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem 1rem;
+}
+
+/* CARD CENTRAL (FORMULÁRIO)*/
+.form-card {
+  background-color: #ffffff;
+  padding: 3rem 2.5rem;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 540px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.form-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.15);
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1E2A78;
+  position: relative;
+}
+
+.form-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 5px;
+  background: linear-gradient(90deg, #00BFFF, #1E90FF);
+  margin: 0.7rem auto 0;
+  border-radius: 3px;
+}
+
+/* RÓTULOS E CAMPOS*/
+.label-field {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #444;
+  margin-top: 1.4rem;
+}
+
+.input-field,
+.select-field {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1.2rem;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  background-color: #fafafa;
+}
+
+.input-field:focus,
+.select-field:focus {
+  outline: none;
+  border-color: #00BFFF;
+  box-shadow: 0 0 8px rgba(0, 191, 255, 0.4);
+  background-color: #fff;
+}
+
+.input-icon-wrapper {
+  position: relative;
+}
+
+.icon-calendar {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  pointer-events: none;
+  font-size: 1.2rem;
+}
+
+.input-icon-wrapper input[type="date"],
+.input-icon-wrapper input[type="time"] {
+  padding-right: 3rem;
+}
+
+/* BOTÕES DE LOCALIZAÇÃO*/
+.location-container {
+  margin-bottom: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.location-btn {
+  background: linear-gradient(45deg, #1E90FF, #00BFFF);
+  color: #fff;
+  border: none;
+  padding: 0.65rem 1.8rem;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1.05rem;
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.location-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.location-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.location-help-text {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.4rem;
+}
+
+/* SEÇÃO CARDÁPIO*/
+.cardapio-section {
+  border: none;
+  margin-top: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.cardapio-title {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 1.4rem;
+  font-weight: 600;
+  color: #1E2A78;
+}
+
+.cardapio-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.9rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.cardapio-item:hover {
+  background-color: #f0f8ff;
+}
+
+.checkbox-field {
+  margin-right: 0.8rem;
+  transform: scale(1.3);
+  cursor: pointer;
+}
+
+.label-item {
+  font-size: 1.05rem;
+  cursor: pointer;
+  color: #555;
+}
+
+/* BOTÕES DE AÇÃO (FORMULÁRIO)*/
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  justify-content: center; 
+}
+
+.btn-salvar-reserva {
+  flex: 1;
+  background: linear-gradient(45deg, #28A745, #85E0A1);
+  color: #fff;
+  border: none;
+  padding: 0.9rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-salvar-reserva:hover {
+  background: linear-gradient(45deg, #1A6B2A, #57A464);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-cancelar {
+  flex: 1;
+  background: #DC3545;
+  color: #fff;
+  border: none;
+  padding: 0.9rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-cancelar:hover {
+  background: #B02A37;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* VISTA “GARÇOM” (RESERVAS) – OCULTA COM .hidden */
+#garcom-view {
+  background-color: #ffffff;
+  padding: 2rem 2rem;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 700px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.hidden {
+  display: none !important;
+}
+
+#garcom-view h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  color: #1E2A78;
+}
+
+.pedido-item {
+  border-bottom: 1px solid #ddd;
+  padding: 1rem 0;
+}
+
+.pedido-item:last-child {
+  border-bottom: none;
+}
+
+.pedido-header {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.pedido-itens {
+  margin-left: 1rem;
+  color: #555;
+}
+
+.pedido-itens li {
+  list-style: disc inside;
+}
+
+/* BOTÃO “CONFIRMAR USO” NA ABA GARÇOM */
+.btn-confirmar {
+  margin-top: 0.75rem;
+  background: linear-gradient(45deg, #1E90FF, #00BFFF);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-confirmar[disabled] {
+  background: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn-confirmar:hover:not([disabled]) {
+  background: linear-gradient(45deg, #005FBF, #0099F0);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* SECÇÃO DE IDENTIFICAÇÃO DO GARÇOM */
+.garcom-login {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.btn-identificar {
+  background: linear-gradient(45deg, #FF8C00, #FFA500);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-identificar:hover {
+  background: linear-gradient(45deg, #E67600, #FF8C00);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.garcom-nome-display {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1E2A78;
+  margin-left: 1rem;
+}
+
+.avisos-garcom {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  color: #B02A37;
+  font-weight: 500;
+}
+
+/* ============================================
+   VISTA “GERENTE” – OCULTA COM .hidden
+   ============================================ */
+#gerente-view {
+  background-color: #ffffff;
+  padding: 2rem 2rem;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 700px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+#gerente-view h2 {
+  text-align: center;
+  margin-bottom: 1.2rem;
+  font-size: 1.8rem;
+  color: #1E2A78;
+}
+
+.relatorio-section {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.relatorio-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: #333;
+}
+
+.relatorio-section label {
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.relatorio-section input[type="date"],
+.relatorio-section input[type="text"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.btn-gerar-relatorio {
+  background: linear-gradient(45deg, #6A5ACD, #7B68EE);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  margin-bottom: 0.8rem;
+}
+
+.btn-gerar-relatorio:hover {
+  background: linear-gradient(45deg, #5B4FCF, #6C5CFE);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+#report-output {
+  width: 100%;
+  height: 200px;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 0.95rem;
+  color: #333;
+  background-color: #f9f9f9;
+  white-space: pre-wrap;
+  overflow-y: auto;
+}
+
+/* ============================================
+   RESPONSIVIDADE SIMPLES
+   ============================================ */
+@media (max-width: 768px) {
+  .form-card, #garcom-view, #gerente-view {
+    padding: 2rem 1.5rem;
+  }
+
+  .nav-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .form-title {
+    font-size: 1.7rem;
+  }
+
+  .cardapio-item {
+    padding: 0.4rem 0.6rem;
+  }
+
+  .btn-salvar-reserva,
+  .btn-cancelar,
+  .btn-confirmar,
+  .btn-identificar,
+  .btn-gerar-relatório {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+
+  .relatorio-section input {
+    width: 100%;
+    margin-bottom: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-btn {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.9rem;
+  }
+
+  .form-title {
+    font-size: 1.5rem;
+  }
+
+  .label-field {
+    margin-top: 1.2rem;
+  }
+
+  .input-field,
+  .select-field {
+    padding: 0.75rem 0.9rem;
+  }
+
+  .btn-salvar-reserva,
+  .btn-cancelar,
+  .btn-confirmar,
+  .btn-identificar,
+  .btn-gerar-relatorio {
+    font-size: 0.8rem;
+    padding: 0.7rem;
+  }
+
+  .menu-title {
+    font-size: 1.3rem;
+  }
+}
